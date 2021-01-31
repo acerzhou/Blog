@@ -17,23 +17,28 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>2021 - First Post | Acer&#39;s Note</title>
-  <meta name="description" content="G’Day Mate.  This is Acer Zhou, welcome to my personal blog space Acer’s Note. I have been thinking to create a blog for a long long time, but never commit to it.  This time, I’d like to give it a try">
+  <title>Git Advanced Skill - Git Rebase | Acer&#39;s Note</title>
+  <meta name="description" content="Overview and Required KnowledgeI have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021 - First Post">
-<meta property="og:url" content="http://acerzhou.github.io/Blog/2021/01/04/2021/index.html">
+<meta property="og:title" content="Git Advanced Skill - Git Rebase">
+<meta property="og:url" content="http://acerzhou.github.io/Blog/2021/01/30/Git-Advanced-Skill-Git-Rebase/index.html">
 <meta property="og:site_name" content="Acer Zhou&#39;s Blog">
-<meta property="og:description" content="G’Day Mate.  This is Acer Zhou, welcome to my personal blog space Acer’s Note. I have been thinking to create a blog for a long long time, but never commit to it.  This time, I’d like to give it a try">
+<meta property="og:description" content="Overview and Required KnowledgeI have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-04T11:31:29.000Z">
-<meta property="article:modified_time" content="2021-01-04T11:58:52.413Z">
+<meta property="og:image" content="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-start.png">
+<meta property="og:image" content="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-deva.png">
+<meta property="og:image" content="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-devb.png">
+<meta property="og:image" content="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-should-use-start.png">
+<meta property="og:image" content="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-should-use-end.png">
+<meta property="article:published_time" content="2021-01-30T06:57:19.000Z">
+<meta property="article:modified_time" content="2021-01-31T11:22:25.104Z">
 <meta property="article:author" content="Acer Zhou">
-<meta property="article:tag" content="2021">
-<meta property="article:tag" content="diary">
-<meta property="article:tag" content="firstPostInYear">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="gitrebase">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-start.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://acerzhou.github.io/Blog/2021/01/04/2021/index.html">
+  <link rel="canonical" href="http://acerzhou.github.io/Blog/2021/01/30/Git-Advanced-Skill-Git-Rebase/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Acer Zhou&#39;s Blog" type="application/atom+xml">
   
@@ -374,14 +379,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-2021" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Git-Advanced-Skill-Git-Rebase" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      2021 - First Post
+      Git Advanced Skill - Git Rebase
     </h1>
   
 
@@ -389,20 +394,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Blog/2021/01/04/2021/" class="article-date">
-	  <time datetime="2021-01-04T11:31:29.000Z" itemprop="datePublished">2021-01-04</time>
+	<a href="/Blog/2021/01/30/Git-Advanced-Skill-Git-Rebase/" class="article-date">
+	  <time datetime="2021-01-30T06:57:19.000Z" itemprop="datePublished">2021-01-30</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/Blog/categories/Diary/">Diary</a>
+    <a class="article-category-link" href="/Blog/categories/Tech/">Tech</a>►<a class="article-category-link" href="/Blog/categories/Tech/Git/">Git</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/Blog/tags/2021/" rel="tag">2021</a>, <a class="article-tag-link-link" href="/Blog/tags/diary/" rel="tag">diary</a>, <a class="article-tag-link-link" href="/Blog/tags/firstPostInYear/" rel="tag">firstPostInYear</a>
+	<a class="article-tag-link-link" href="/Blog/tags/git/" rel="tag">git</a>, <a class="article-tag-link-link" href="/Blog/tags/gitrebase/" rel="tag">gitrebase</a>
   </span>
 
 
@@ -415,31 +420,63 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Blog/2021/01/04/2021/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Blog/2021/01/30/Git-Advanced-Skill-Git-Rebase/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 116(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 981(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>G’Day Mate. </p>
-<p>This is Acer Zhou, welcome to my personal blog space <a target="_blank" rel="noopener" href="http://acerzhou.info/Blog/">Acer’s Note</a>.</p>
-<p>I have been thinking to create a blog for a long long time, but never commit to it. </p>
-<p>This time, I’d like to give it a try and put some effort here, to create a space recording and sharing the journey I have been through. </p>
-<p>Currently, for this site, I am going to focus on but not limited to following content:</p>
+        <h2 id="Overview-and-Required-Knowledge"><a href="#Overview-and-Required-Knowledge" class="headerlink" title="Overview and Required Knowledge"></a>Overview and Required Knowledge</h2><p>I have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of it, but never get a chance to deeply understand and applied in my daily working. In this post, I am going to explore git rebase, and summary how to use it. </p>
+<p>Required Knowledge:<br>Git Basic Understanding</p>
+<p>Audience who may get most out of this post:</p>
 <ul>
-<li>Diary &amp; Casual thinking</li>
-<li>Tech &amp; Programming</li>
-<li>Some Useful Resources </li>
+<li>Have been working with Git for a while</li>
+<li>Haven’t use/know git rebase in details</li>
 </ul>
-<p>I hope I can take this on, and make it become a small conner on the Internet.<br>And most important, hope you enjoy it. :)</p>
-<p>Let’s rock, 2021 !</p>
+<h2 id="Introduction-to-Git-Rebase"><a href="#Introduction-to-Git-Rebase" class="headerlink" title="Introduction to Git Rebase"></a>Introduction to Git Rebase</h2><p><strong>Git Rebase</strong> </p>
+<h2 id="When-shouldn’t-use-Rebase-and-when-should-use-Rebase"><a href="#When-shouldn’t-use-Rebase-and-when-should-use-Rebase" class="headerlink" title="When shouldn’t use Rebase and when should use Rebase"></a>When shouldn’t use Rebase and when should use Rebase</h2><h4 id="Never-Rebase-on-Shared-Branch"><a href="#Never-Rebase-on-Shared-Branch" class="headerlink" title="Never Rebase on Shared Branch"></a>Never Rebase on Shared Branch</h4><p><strong>Git Rebase</strong> will rewrite part of branch history. If those commits are already on origin, and someone rebase those commits and push to origin, other people who are on the same branch will have diverged. It is going to be super confused, and other people may lose their commits / codes when try to solve the diverge. </p>
+<p><img src="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-start.png" alt="Git Reverse Not Use 1"><br><img src="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-deva.png" alt="Git Reverse Not Use 2"><br><img src="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-devb.png" alt="Git Reverse Not Use 3"></p>
+<h4 id="Best-Rebase-time-before-push-to-origin"><a href="#Best-Rebase-time-before-push-to-origin" class="headerlink" title="Best Rebase time - before push to origin"></a>Best Rebase time - before push to origin</h4><p>One of the best times to use <strong>Git Rebase</strong> is doing rebase just before push anything into origin. If we treat anything origin should be seriously correct and it is the final source of truth. Before pushing to origin, we need to make sure what push into origin should be correct and right formatted. Git Rebase is a good tool to use that time. </p>
+<p><img src="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-should-use-start.png" alt="Git Reverse Should Use 1"><br><img src="http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-should-use-end.png" alt="Git Reverse Should Use 2"></p>
+<p>In this case, there are four commits (c6, c7, c8, c9).<br>c6 adds two files (file1 &amp; file2).<br>c7 does an update on file1.<br>c8 revert the code change of c7.<br>c9 remove the file2.</p>
+<p>Those four commits at the end, only add file1 into the repos. We would like to have more clear and simple history record in the whole repo history. So we can use <strong>Git Rebase</strong> to change the history to 1 commit (add file1). And push the origin. </p>
+<h2 id="How-to-use-Rebase"><a href="#How-to-use-Rebase" class="headerlink" title="How to use Rebase"></a>How to use Rebase</h2><p>When use <strong>Git Rebase</strong>, there is always a base branch. </p>
+<p>If a branch (e.g. feature/test) has an origin (origin/feature/test), when run command </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase [-i]</span><br></pre></td></tr></table></figure>
+<p>the branch will base on origin branch. </p>
+<p>Otherwise, you can use</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase &lt;branch-name&gt; [-i]</span><br></pre></td></tr></table></figure>
+<p>to rebase again certain branch.</p>
+<h4 id="i-Parameter"><a href="#i-Parameter" class="headerlink" title="-i Parameter"></a>-i Parameter</h4><p>-i means “interactive” rebase, that developer can edit before the rebase start, and control the behaviour. Without “-i” parameter, Git will apply rebase automatically, and get human interaction when it is necessary (getting into some troubles 😁).</p>
+<p>When running <strong>git rebase -i</strong> will have following page shows</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pick 4ad9704 hello</span><br><span class="line">pick xxxxxxx commit 2</span><br><span class="line">pick xxxxxxy commit 3</span><br><span class="line"></span><br><span class="line"># Rebase 8d7e9b7..4ad9704 onto 8d7e9b7 (1 command)</span><br><span class="line">#</span><br><span class="line"># Commands:</span><br><span class="line"># p, pick &#x3D; use commit</span><br><span class="line"># r, reword &#x3D; use commit, but edit the commit message</span><br><span class="line"># e, edit &#x3D; use commit, but stop for amending</span><br><span class="line"># s, squash &#x3D; use commit, but meld into previous commit</span><br><span class="line"># f, fixup &#x3D; like &quot;squash&quot;, but discard this commit&#39;s log message</span><br><span class="line"># x, exec &#x3D; run command (the rest of the line) using shell</span><br><span class="line"># d, drop &#x3D; remove commit</span><br><span class="line">#</span><br><span class="line"># These lines can be re-ordered; they are executed from top to bottom.</span><br><span class="line">#</span><br><span class="line"># If you remove a line here THAT COMMIT WILL BE LOST.</span><br><span class="line">#</span><br><span class="line"># However, if you remove everything, the rebase will be aborted.</span><br><span class="line">#</span><br><span class="line"># Note that empty commits are commented out</span><br></pre></td></tr></table></figure>
+<p>In this part, you can choose behaviour of <strong>git rebase</strong>.<br>Using editor, change the <strong>pick</strong> at the beginning of each commit, and choose the action for the commit.</p>
+<ul>
+<li>p(pick) - it will keep the commit as original - do this when you are happy with the commit</li>
+<li>r(reword) - when git rebase apply to this commit, it will give you opportunity to update commit message - do this when you are ok with the commit file change, but want to make better commit message</li>
+<li>e(edit) - when git rebase apply to this commit, it will give you opportunity to amend commit (either message or commit content) - do this when you want to do some update on the commit (require know how to do amend)</li>
+<li>s(squash) - the commit will be combined into previous one, and message will be put into previous commit message - do this when you want to combined two or more commits</li>
+<li>f(fixup) - similar to “s”, but the commit message of this commit will be discard - do this when you want to remove the give message for this one</li>
+<li>x(exec) - run some shell script - I haven’t play this one, may update this later</li>
+<li>d(drop) - remove the commit (same to remove the line)</li>
+</ul>
+<p>Note: the order can be changed as well. Then rebase will apply it from to top. If there is any change or conflicts, it will stop and ask developers input to progress.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>Take the previous example: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c6 adds two files (file1 &amp; file2). </span><br><span class="line">c7 does an update on file1. </span><br><span class="line">c8 revert the code change of c7.</span><br><span class="line">c9 remove the file2.</span><br></pre></td></tr></table></figure>
+<p>I can do </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r c6 adds two files (file1 &amp; file2). </span><br><span class="line">d c7 does an update on file1. </span><br><span class="line">d c8 revert the code change of c7.</span><br><span class="line">f c9 remove the file2.</span><br></pre></td></tr></table></figure>
+<p>When c6 is applied, I can reword commit message to “Add file1”</p>
+<p>This will give a clean git history.</p>
+<h2 id="How-to-practice"><a href="#How-to-practice" class="headerlink" title="How to practice"></a>How to practice</h2><p>I will recommand to practice this skill by creating an empty repo. Then create a file, and commit some content, writing couple of more commits, and play with rebase. It is going to be helpful to see the simple change, and ordered commits. In real environment, it is could be more complex, but hard to see how rebase working. </p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>This post summarised some understanding on <strong>Git Rebase</strong>. I haven’t covered <strong>Git Rebase –onto</strong>, maybe will cover it in future post. Hope everyone can get some understanding on this process. Please leave any comments and thoughts. Thanks for reading. </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase">Atlassian Git Rebase</a><br><a target="_blank" rel="noopener" href="https://medium.com/@lovepreet013singhhundal/git-merge-vs-git-rebase-d386e1f3cda7">Git Merge vs Git Rebase</a><br><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-rebase">Git Books</a><br><a target="_blank" rel="noopener" href="https://blog.scottlogic.com/2020/01/09/git-rebasing.html">Git Rebasing</a><br>[Git Rebase and Git Rebase –onto]</p>
 
       
     </div>
@@ -449,7 +486,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://acerzhou.github.io/Blog/2021/01/04/2021/" title="2021 - First Post" target="_blank" rel="external">http://acerzhou.github.io/Blog/2021/01/04/2021/</a>
+      <a href="http://acerzhou.github.io/Blog/2021/01/30/Git-Advanced-Skill-Git-Rebase/" title="Git Advanced Skill - Git Rebase" target="_blank" rel="external">http://acerzhou.github.io/Blog/2021/01/30/Git-Advanced-Skill-Git-Rebase/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -495,13 +532,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/Blog/2021/01/05/websites/" title="Websites"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/Blog/2021/01/04/hello-world/" title="Hello World From Acer&#39;s Note"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/Blog/2021/01/26/First-Week-in-New-Company/" title="First Week in New Company"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
