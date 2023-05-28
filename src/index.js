@@ -45,7 +45,6 @@ const router = createBrowserRouter([
     path: "/:slug",
     element: <Post />,
   },
-  ,
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
