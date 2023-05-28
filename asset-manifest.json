@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.js": "/static/js/main.c7c0db4a.js",
+    "static/js/541.7868afa4.chunk.js": "/static/js/541.7868afa4.chunk.js",
+    "static/js/823.f7cd1100.chunk.js": "/static/js/823.f7cd1100.chunk.js",
+    "static/js/82.479a67a0.chunk.js": "/static/js/82.479a67a0.chunk.js",
+    "static/js/403.5d57bcf4.chunk.js": "/static/js/403.5d57bcf4.chunk.js",
+    "static/js/855.fc6479f4.chunk.js": "/static/js/855.fc6479f4.chunk.js",
+    "static/js/701.5e2a9dbf.chunk.js": "/static/js/701.5e2a9dbf.chunk.js",
+    "static/js/165.d3078064.chunk.js": "/static/js/165.d3078064.chunk.js",
+    "static/js/465.3a400e46.chunk.js": "/static/js/465.3a400e46.chunk.js",
+    "static/js/284.2f277c46.chunk.js": "/static/js/284.2f277c46.chunk.js",
+    "static/js/787.f368ee69.chunk.js": "/static/js/787.f368ee69.chunk.js",
+    "static/media/Some-Reflections-on-My-Job-Hunting.md": "/static/media/Some-Reflections-on-My-Job-Hunting.3da816fdbd134e7853ae.md",
+    "static/media/First-Week-in-New-Company.md": "/static/media/First-Week-in-New-Company.fddded8c56edabe7f851.md",
+    "static/media/Docker-101.md": "/static/media/Docker-101.651dcc6f341d0b601bae.md",
+    "static/media/Git-Advanced-Skill-Git-Rebase.md": "/static/media/Git-Advanced-Skill-Git-Rebase.cf8b09ddd68ab064cbbb.md",
+    "static/media/VS-Code-Plugins.md": "/static/media/VS-Code-Plugins.b48f19f0804ca56d0ccd.md",
+    "static/media/Some-Javascript-Array-Fundamentals.md": "/static/media/Some-Javascript-Array-Fundamentals.75c3543ae5301dcb407c.md",
+    "static/media/Recursion.md": "/static/media/Recursion.1ba625fb8f2cbefa47fe.md",
+    "static/media/2021.md": "/static/media/2021.429b4d5e2ce500228abf.md",
+    "index.html": "/index.html",
+    "static/media/websites.md": "/static/media/websites.38f0ec1c8f1d3cb9f357.md",
+    "main.c7c0db4a.js.map": "/static/js/main.c7c0db4a.js.map",
+    "787.f368ee69.chunk.js.map": "/static/js/787.f368ee69.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c7c0db4a.js"
+  ]
+}

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[82],{82:function(e,s,d){e.exports=d.p+"static/media/First-Week-in-New-Company.fddded8c56edabe7f851.md"}}]);
