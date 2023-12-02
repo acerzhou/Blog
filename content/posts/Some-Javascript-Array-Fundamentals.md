@@ -1,3 +1,8 @@
++++
+title = 'Some Javascript Array Fundamentals'
+date = 2023-12-02T22:27:56+07:00
++++
+
 ![JavaScript](http://acerzhou.info/Blog/images/some-javascript-array-fundamentals/javascript.png)
 
 ## Overview and background

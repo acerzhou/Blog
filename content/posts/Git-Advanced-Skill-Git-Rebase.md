@@ -1,3 +1,8 @@
++++
+title = 'Git Advanced Skill Git Rebase'
+date = 2023-12-02T22:27:56+07:00
++++
+
 ## Overview and Required Knowledge
 
 I have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of it, but never get a chance to deeply understand and applied in my daily working. In this post, I am going to explore git rebase, and summary how to use it.

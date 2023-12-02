@@ -1,3 +1,8 @@
++++
+title = 'Some Reflections on My Job Hunting'
+date = 2023-12-02T22:27:56+07:00
++++
+
 This post is about some reflections on my job hunting experience in past couple of months.
 
 Audience who may get most out of this post:

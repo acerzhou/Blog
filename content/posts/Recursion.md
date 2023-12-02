@@ -1,3 +1,8 @@
++++
+title = 'Recursion'
+date = 2023-12-02T22:27:56+07:00
++++
+
 ## Background and Audiences
 
 In the early this week, I have encounter a problem that can solved by recursion. However, it took me a while to get it solved. In this post, I am going to get couple questions on recursion problem, and practice writing some code.
