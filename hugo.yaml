@@ -113,9 +113,9 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
+    - identifier: search
+      name: search
+      url: /search/
       weight: 10
     - identifier: tags
       name: tags
@@ -125,6 +125,12 @@ menu:
       name: acerzhou
       url: https://acerzhou.info
       weight: 30
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
