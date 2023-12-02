@@ -1,3 +1,8 @@
++++
+title = 'VS Code Plugins'
+date = 2023-12-02T22:27:56+07:00
++++
+
 [VS Code](https://code.visualstudio.com) is one of the best and most popular editors in today's world.
 
 From my understanding, it becomes outstanding from tools in IT due to following reasons:

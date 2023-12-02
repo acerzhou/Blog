@@ -1,3 +1,8 @@
++++
+title = 'First Week in New Company'
+date = 2023-12-02T22:27:56+07:00
++++
+
 ## First Week Experience
 
 I just finished my first week in the new place and I would like to write down some thinking on the first week. For new company onboarding, I have a dedicated Trello board for myself tracking things (so far I really enjoyed it). I am still setting up my work laptops, building workflow and habits. I did ship my first PR into prod😁, a really simple change in the website. It was a good learning process to understand from updating code, submitting PR, PR reviewing, deployed into Prod and checking the result. There is good documentation within the team and everyone is welling to jump into a call helping me through to the end.
