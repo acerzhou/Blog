@@ -1,6 +1,6 @@
 baseURL: "https://acerzhou.info"
 title: Acer Zhou
-theme: PaperMod
+theme: nostyleplease
 
 enableRobotsTXT: true
 buildDrafts: false
