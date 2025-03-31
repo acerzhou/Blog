@@ -6,56 +6,6 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 Dec 2023 22:27:56 +0700</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>First Week in New Company</title>
-      <link>//localhost:1313/posts/first-week-in-new-company/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/first-week-in-new-company/</guid>
-      <description>&lt;h2 id=&#34;first-week-experience&#34;&gt;First Week Experience&lt;/h2&gt;&#xA;&lt;p&gt;I just finished my first week in the new place and I would like to write down some thinking on the first week. For new company onboarding, I have a dedicated Trello board for myself tracking things (so far I really enjoyed it). I am still setting up my work laptops, building workflow and habits. I did ship my first PR into prod😁, a really simple change in the website. It was a good learning process to understand from updating code, submitting PR, PR reviewing, deployed into Prod and checking the result. There is good documentation within the team and everyone is welling to jump into a call helping me through to the end.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Advanced Skill Git Rebase</title>
-      <link>//localhost:1313/posts/git-advanced-skill-git-rebase/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/git-advanced-skill-git-rebase/</guid>
-      <description>&lt;h2 id=&#34;overview-and-required-knowledge&#34;&gt;Overview and Required Knowledge&lt;/h2&gt;&#xA;&lt;p&gt;I have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of it, but never get a chance to deeply understand and applied in my daily working. In this post, I am going to explore git rebase, and summary how to use it.&lt;/p&gt;&#xA;&lt;p&gt;Required Knowledge:&#xA;Git Basic Understanding&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Recursion</title>
-      <link>//localhost:1313/posts/recursion/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/recursion/</guid>
-      <description>&lt;h2 id=&#34;background-and-audiences&#34;&gt;Background and Audiences&lt;/h2&gt;&#xA;&lt;p&gt;In the early this week, I have encounter a problem that can solved by recursion. However, it took me a while to get it solved. In this post, I am going to get couple questions on recursion problem, and practice writing some code.&lt;/p&gt;&#xA;&lt;p&gt;Audiences&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Having basic understanding on Programming&lt;/li&gt;&#xA;&lt;li&gt;Haven&amp;rsquo;t familiar recursion problem&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;recursion&#34;&gt;Recursion&lt;/h2&gt;&#xA;&lt;p&gt;In computer science, recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. (From &lt;a href=&#34;https://en.wikipedia.org/wiki/Recursion_(computer_science)&#34;&gt;WikiPedia&lt;/a&gt;)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Some Javascript Array Fundamentals</title>
-      <link>//localhost:1313/posts/some-javascript-array-fundamentals/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/some-javascript-array-fundamentals/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://acerzhou.info/Blog/images/some-javascript-array-fundamentals/javascript.png&#34; alt=&#34;JavaScript&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;overview-and-background&#34;&gt;Overview and background&lt;/h2&gt;&#xA;&lt;p&gt;Recently, I am working on some React components, and it involved some manipulation on arrays. In C#, there is powerful Linq giving you pretty much all tools you are going to need. It is powerful and readable. However, Javascript is a different story. I am going to summarise some basic JavaScript Array manipulations.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Audience&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;People having some basic knowledge&lt;/li&gt;&#xA;&lt;li&gt;Haven&amp;rsquo;t doing manipulation and transformation using JavaScript a lot&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;some-useful-javascript-array-functions&#34;&gt;Some useful JavaScript Array Functions&lt;/h2&gt;&#xA;&lt;h4 id=&#34;most-common-used---push-pop&#34;&gt;Most common used - push, pop&lt;/h4&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    const array = [1, 2, 3, 4, 5];&#xA;    // add 6 at the end&#xA;    const lengthOfArray =  array.push(6); // array -&amp;gt; [1, 2, 3, 4, 5, 6], lengthOfArray -&amp;gt; 6&#xA;&#xA;    // get the last element&#xA;    const lastElement = array.pop(); // array -&amp;gt; [1, 2, 3, 4, 5], lastElement -&amp;gt; 6&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;opposite-to-push--pop---shift-unshift&#34;&gt;Opposite to push &amp;amp; pop - shift, unshift&lt;/h4&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    const array = [1, 2, 3, 4, 5];&#xA;    // add 6 at the beginning&#xA;    const lengthOfArray =  array.unshift(6); // array -&amp;gt; [6, 1, 2, 3, 4, 5], lengthOfArray -&amp;gt; 6&#xA;&#xA;    // get the first element&#xA;    const firstElement = array.shift(); // array -&amp;gt; [1, 2, 3, 4, 5], firstElement -&amp;gt; 6&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;filter-the-array---filter&#34;&gt;Filter the array - filter&lt;/h4&gt;&#xA;&lt;p&gt;This method is similar to Linq Where. However, you can manipulate the element in filter function.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Some Reflections on My Job Hunting</title>
-      <link>//localhost:1313/posts/some-reflections-on-my-job-hunting/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/some-reflections-on-my-job-hunting/</guid>
-      <description>&lt;p&gt;This post is about some reflections on my job hunting experience in past couple of months.&lt;/p&gt;&#xA;&lt;p&gt;Audience who may get most out of this post:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;People looking for jobs such as Software Developer or similar role&lt;/li&gt;&#xA;&lt;li&gt;People having 2 - 4 years experience in IT industry&lt;/li&gt;&#xA;&lt;li&gt;People haven&amp;rsquo;t been looking for jobs for a while, or first time looking for a job&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;lesson-no-1---dont-trust-recruiters&#34;&gt;Lesson No 1 - Don&amp;rsquo;t trust recruiters&lt;/h2&gt;&#xA;&lt;p&gt;Last August, a recruiter reached out to me on LinkedIn, and told me there was a good opportunity in another retailer in Australia. Their team just got funding and would like to expand their IT Engineering team. I have heard good comments about the company, and its office is also happened to located near place I am living.So I decide to give her a go. However, she is gone for good after first chat. No messages, no emails and no phone calls, like this person never showed in my life.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>VS Code Plugins</title>
-      <link>//localhost:1313/posts/vs-code-plugins/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/vs-code-plugins/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com&#34;&gt;VS Code&lt;/a&gt; is one of the best and most popular editors in today&amp;rsquo;s world.&lt;/p&gt;&#xA;&lt;p&gt;From my understanding, it becomes outstanding from tools in IT due to following reasons:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lightweight&lt;/li&gt;&#xA;&lt;li&gt;Cross Platform (Windows, Mac, Linux)&lt;/li&gt;&#xA;&lt;li&gt;High quality and multiple plugins&lt;/li&gt;&#xA;&lt;li&gt;Clean and simple UI&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this post, I put some plugins I have used in my day to day job, and improve my productivity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;coding-and-scripting-helper&#34;&gt;Coding and Scripting Helper&lt;/h2&gt;&#xA;&lt;h4 id=&#34;tabnine&#34;&gt;TabNine&lt;/h4&gt;&#xA;&lt;p&gt;I have been used &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode&#34;&gt;TabNine&lt;/a&gt; for a while, and it is become part of my working flow now. It is quite powerful and give good insight and improve productivity. However, it is still a bit different from XCode and Visual Studio suggestion. I think it is good enough and worth to try.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>What is Container &amp; Docker</title>
-      <link>//localhost:1313/posts/docker-101/</link>
-      <pubDate>Sat, 02 Dec 2023 22:27:56 +0700</pubDate>
-      <guid>//localhost:1313/posts/docker-101/</guid>
-      <description>&lt;h2 id=&#34;what-is-container--docker&#34;&gt;What is Container &amp;amp; Docker&lt;/h2&gt;&#xA;&lt;p&gt;Container&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Docker&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Docker is an open source platform for building, deploying, and managing containerized applications.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Because docker is so popular today, the word docker and container are used interchangeably. However, docker is a way doing container, there are also other technologies can do containers e.g. Buildah &amp;amp; Podman.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
