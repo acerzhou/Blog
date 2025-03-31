@@ -1,1 +1,4 @@
+baseURL = 'https://acerzhou.info'
+languageCode = 'en-us'
+title = 'Acer Zhou's Blog'
 theme = 'nostyleplease'
