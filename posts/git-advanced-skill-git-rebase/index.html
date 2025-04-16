@@ -1,0 +1,50 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Overview and Required Knowledge
+I have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of it, but never get a chance to deeply understand and applied in my daily working. In this post, I am going to explore git rebase, and summary how to use it.
+Required Knowledge:
+Git Basic Understanding"><title>Git Advanced Skill Git Rebase
+</title><link rel="shortcut icon" type=image/x-icon href=/><link rel=stylesheet href=/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css integrity="sha512-UWUjAtOpmL94h67Vws+JFBu+vfRaLI+HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w=="></head><body a=auto><main class=page-content aria-label=Content><div class=w><div class=post-meta><a href=/>..</a><p><time datetime="2023-12-02 22:27:56 +0700 +0700">2023-12-02</time></p></div><article><h1>Git Advanced Skill Git Rebase</h1><h2 id=overview-and-required-knowledge>Overview and Required Knowledge</h2><p>I have been working with Git for a while. As a developer, version control is one of the key daily workflows. However, git rebase is always something that I have heard of it, but never get a chance to deeply understand and applied in my daily working. In this post, I am going to explore git rebase, and summary how to use it.</p><p>Required Knowledge:
+Git Basic Understanding</p><p>Audience who may get most out of this post:</p><ul><li>Have been working with Git for a while</li><li>Haven&rsquo;t use/know git rebase in details</li></ul><h2 id=introduction-to-git-rebase>Introduction to Git Rebase</h2><p><strong>Git Rebase</strong></p><h2 id=when-shouldnt-use-rebase-and-when-should-use-rebase>When shouldn&rsquo;t use Rebase and when should use Rebase</h2><h4 id=never-rebase-on-shared-branch>Never Rebase on Shared Branch</h4><p><strong>Git Rebase</strong> will rewrite part of branch history. If those commits are already on origin, and someone rebase those commits and push to origin, other people who are on the same branch will have diverged. It is going to be super confused, and other people may lose their commits / codes when try to solve the diverge.</p><p><img src=http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-start.png alt="Git Reverse Not Use 1">
+<img src=http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-deva.png alt="Git Reverse Not Use 2">
+<img src=http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-devb.png alt="Git Reverse Not Use 3"></p><h4 id=best-rebase-time---before-push-to-origin>Best Rebase time - before push to origin</h4><p>One of the best times to use <strong>Git Rebase</strong> is doing rebase just before push anything into origin. If we treat anything origin should be seriously correct and it is the final source of truth. Before pushing to origin, we need to make sure what push into origin should be correct and right formatted. Git Rebase is a good tool to use that time.</p><p><img src=http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-should-use-start.png alt="Git Reverse Should Use 1">
+<img src=http://acerzhou.info/Blog/images/git-advanced-skill-git-rebase/git-rebase-should-use-end.png alt="Git Reverse Should Use 2"></p><p>In this case, there are four commits (c6, c7, c8, c9).
+c6 adds two files (file1 & file2).
+c7 does an update on file1.
+c8 revert the code change of c7.
+c9 remove the file2.</p><p>Those four commits at the end, only add file1 into the repos. We would like to have more clear and simple history record in the whole repo history. So we can use <strong>Git Rebase</strong> to change the history to 1 commit (add file1). And push the origin.</p><h2 id=how-to-use-rebase>How to use Rebase</h2><p>When use <strong>Git Rebase</strong>, there is always a base branch.</p><p>If a branch (e.g. feature/test) has an origin (origin/feature/test), when run command</p><pre tabindex=0><code>    git rebase [-i]
+</code></pre><p>the branch will base on origin branch.</p><p>Otherwise, you can use</p><pre tabindex=0><code>    git rebase &lt;branch-name&gt; [-i]
+</code></pre><p>to rebase again certain branch.</p><h4 id=-i-parameter>-i Parameter</h4><p>-i means &ldquo;interactive&rdquo; rebase, that developer can edit before the rebase start, and control the behaviour. Without &ldquo;-i&rdquo; parameter, Git will apply rebase automatically, and get human interaction when it is necessary (getting into some troubles 😁).</p><p>When running <strong>git rebase -i</strong> will have following page shows</p><pre tabindex=0><code>pick 4ad9704 hello
+pick xxxxxxx commit 2
+pick xxxxxxy commit 3
+
+# Rebase 8d7e9b7..4ad9704 onto 8d7e9b7 (1 command)
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+</code></pre><p>In this part, you can choose behaviour of <strong>git rebase</strong>.
+Using editor, change the <strong>pick</strong> at the beginning of each commit, and choose the action for the commit.</p><ul><li>p(pick) - it will keep the commit as original - do this when you are happy with the commit</li><li>r(reword) - when git rebase apply to this commit, it will give you opportunity to update commit message - do this when you are ok with the commit file change, but want to make better commit message</li><li>e(edit) - when git rebase apply to this commit, it will give you opportunity to amend commit (either message or commit content) - do this when you want to do some update on the commit (require know how to do amend)</li><li>s(squash) - the commit will be combined into previous one, and message will be put into previous commit message - do this when you want to combined two or more commits</li><li>f(fixup) - similar to &ldquo;s&rdquo;, but the commit message of this commit will be discard - do this when you want to remove the give message for this one</li><li>x(exec) - run some shell script - I haven&rsquo;t play this one, may update this later</li><li>d(drop) - remove the commit (same to remove the line)</li></ul><p>Note: the order can be changed as well. Then rebase will apply it from to top. If there is any change or conflicts, it will stop and ask developers input to progress.</p><h4 id=example>Example</h4><p>Take the previous example:</p><pre tabindex=0><code>c6 adds two files (file1 &amp; file2).
+c7 does an update on file1.
+c8 revert the code change of c7.
+c9 remove the file2.
+</code></pre><p>I can do</p><pre tabindex=0><code>r c6 adds two files (file1 &amp; file2).
+d c7 does an update on file1.
+d c8 revert the code change of c7.
+f c9 remove the file2.
+</code></pre><p>When c6 is applied, I can reword commit message to &ldquo;Add file1&rdquo;</p><p>This will give a clean git history.</p><h2 id=how-to-practice>How to practice</h2><p>I will recommand to practice this skill by creating an empty repo. Then create a file, and commit some content, writing couple of more commits, and play with rebase. It is going to be helpful to see the simple change, and ordered commits. In real environment, it is could be more complex, but hard to see how rebase working.</p><h2 id=summary>Summary</h2><p>This post summarised some understanding on <strong>Git Rebase</strong>. I haven&rsquo;t covered <strong>Git Rebase &ndash;onto</strong>, maybe will cover it in future post. Hope everyone can get some understanding on this process. Please leave any comments and thoughts. Thanks for reading.</p><h2 id=reference>Reference</h2><p><a href=https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase>Atlassian Git Rebase</a>
+<a href=https://medium.com/@lovepreet013singhhundal/git-merge-vs-git-rebase-d386e1f3cda7>Git Merge vs Git Rebase</a>
+<a href=https://git-scm.com/docs/git-rebase>Git Books</a>
+<a href=https://blog.scottlogic.com/2020/01/09/git-rebasing.html>Git Rebasing</a>
+<a href=https://medium.com/@gabriellamedas/git-rebase-and-git-rebase-onto-a6a3f83f9cce>Git Rebase and Git Rebase &ndash;onto</a></p></article></div></main></body></html>

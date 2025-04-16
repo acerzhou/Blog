@@ -1,0 +1,130 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+Overview and background
+Recently, I am working on some React components, and it involved some manipulation on arrays. In C#, there is powerful Linq giving you pretty much all tools you are going to need. It is powerful and readable. However, Javascript is a different story. I am going to summarise some basic JavaScript Array manipulations.
+Audience
+
+People having some basic knowledge
+Haven&rsquo;t doing manipulation and transformation using JavaScript a lot
+
+Some useful JavaScript Array Functions
+Most common used - push, pop
+    const array = [1, 2, 3, 4, 5];
+    // add 6 at the end
+    const lengthOfArray =  array.push(6); // array -> [1, 2, 3, 4, 5, 6], lengthOfArray -> 6
+
+    // get the last element
+    const lastElement = array.pop(); // array -> [1, 2, 3, 4, 5], lastElement -> 6
+Opposite to push & pop - shift, unshift
+    const array = [1, 2, 3, 4, 5];
+    // add 6 at the beginning
+    const lengthOfArray =  array.unshift(6); // array -> [6, 1, 2, 3, 4, 5], lengthOfArray -> 6
+
+    // get the first element
+    const firstElement = array.shift(); // array -> [1, 2, 3, 4, 5], firstElement -> 6
+Filter the array - filter
+This method is similar to Linq Where. However, you can manipulate the element in filter function."><title>Some Javascript Array Fundamentals
+</title><link rel="shortcut icon" type=image/x-icon href=/><link rel=stylesheet href=/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css integrity="sha512-UWUjAtOpmL94h67Vws+JFBu+vfRaLI+HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w=="></head><body a=auto><main class=page-content aria-label=Content><div class=w><div class=post-meta><a href=/>..</a><p><time datetime="2023-12-02 22:27:56 +0700 +0700">2023-12-02</time></p></div><article><h1>Some Javascript Array Fundamentals</h1><p><img src=http://acerzhou.info/Blog/images/some-javascript-array-fundamentals/javascript.png alt=JavaScript></p><h2 id=overview-and-background>Overview and background</h2><p>Recently, I am working on some React components, and it involved some manipulation on arrays. In C#, there is powerful Linq giving you pretty much all tools you are going to need. It is powerful and readable. However, Javascript is a different story. I am going to summarise some basic JavaScript Array manipulations.</p><p><strong>Audience</strong></p><ol><li>People having some basic knowledge</li><li>Haven&rsquo;t doing manipulation and transformation using JavaScript a lot</li></ol><h2 id=some-useful-javascript-array-functions>Some useful JavaScript Array Functions</h2><h4 id=most-common-used---push-pop>Most common used - push, pop</h4><pre tabindex=0><code>    const array = [1, 2, 3, 4, 5];
+    // add 6 at the end
+    const lengthOfArray =  array.push(6); // array -&gt; [1, 2, 3, 4, 5, 6], lengthOfArray -&gt; 6
+
+    // get the last element
+    const lastElement = array.pop(); // array -&gt; [1, 2, 3, 4, 5], lastElement -&gt; 6
+</code></pre><h4 id=opposite-to-push--pop---shift-unshift>Opposite to push & pop - shift, unshift</h4><pre tabindex=0><code>    const array = [1, 2, 3, 4, 5];
+    // add 6 at the beginning
+    const lengthOfArray =  array.unshift(6); // array -&gt; [6, 1, 2, 3, 4, 5], lengthOfArray -&gt; 6
+
+    // get the first element
+    const firstElement = array.shift(); // array -&gt; [1, 2, 3, 4, 5], firstElement -&gt; 6
+</code></pre><h4 id=filter-the-array---filter>Filter the array - filter</h4><p>This method is similar to Linq Where. However, you can manipulate the element in filter function.</p><pre tabindex=0><code>    const array = [
+        {
+            key: &#39;a&#39;,
+            value: 123
+        },
+        {
+            key: &#39;b&#39;,
+            value: 50
+        }
+    ]
+
+    const elementValueGreaterThen50 = array.filter(element =&gt; element.value &gt; 50);
+    // elementValueGreaterThen50 -&gt; [{key: &#39;a&#39;, value: 123}]
+    const elementKeyIsB = array.filter(element =&gt; element.key === &#39;b&#39;);
+    // elementKeyIsB -&gt; [{key: &#39;b&#39;, value: 50}]
+</code></pre><h4 id=create-a-new-array-based-on-current-array---map>Create a new array based on current array - map</h4><p>Map is sort of similar with Linq Select, but it more powerful, as it can add attribute to the element.</p><pre tabindex=0><code>    const array = [
+        {
+            key: &#39;a&#39;,
+            value: 123
+        },
+        {
+            key: &#39;b&#39;,
+            value: 50
+        }
+    ]
+
+    const arrayOfKeys = array.map(a =&gt; a.key);
+    // arrayOfKeys -&gt; [ &#39;a&#39;, &#39;b&#39; ]
+
+
+    const arrayOnlyWithKey = array.map(a =&gt; {return {key: a.key}});
+    // arrayOnlyWithKey -&gt; [ { key: &#39;a&#39; }, { key: &#39;b&#39; } ]
+
+    const arrayOnlyWithKeyAndTag = array.map(a =&gt; {
+        return {
+            key: a.key,
+            tag: a.key + a.value
+        }
+    });
+    // arrayOnlyWithKeyAndTag -&gt; [ { key: &#39;a&#39;, tag: &#39;a123&#39; }, { key: &#39;b&#39;, tag: &#39;b50&#39; } ]
+</code></pre><h4 id=loop-through-the-array---foreach>Loop Through the array - forEach</h4><pre tabindex=0><code>    const array = [
+        {
+            key: &#39;a&#39;,
+            value: 123
+        },
+        {
+            key: &#39;b&#39;,
+            value: 50
+        }
+    ]
+
+    array.forEach(a =&gt; console.log(a.key));
+    // print a  b
+</code></pre><h4 id=powerful-and-interesting-tool---reduce>Powerful and interesting tool - reduce</h4><pre tabindex=0><code>    const result = [0, 1, 2, 3, 4].reduce((accumulator, currentValue, currentIndex, array) =&gt; {
+        return accumulator + currentValue
+    }, 10) // 10 is initial value
+    // result -&gt; 20
+
+    const array = [
+        {
+            key: &#39;a&#39;,
+            values: [&#39;value a-1&#39;]
+        },
+        {
+            key: &#39;b&#39;,
+            values: [&#39;value b-1&#39;]
+        },
+        {
+            key: &#39;a&#39;,
+            values: [&#39;value a-2&#39;]
+        },
+        {
+            key: &#39;b&#39;,
+            values: [&#39;value b-2&#39;]
+        }
+    ]
+
+    const newArray = array.reduce((acc, cur) =&gt; {
+
+        const indexOfExistingItem = acc.map(a =&gt; a.key).indexOf(cur.key);
+
+        if(indexOfExistingItem !== -1){
+
+            acc[indexOfExistingItem].values = acc[indexOfExistingItem].values.concat(cur.values);
+        }else{
+            acc.push(cur);
+        }
+        return acc;
+    },[]);
+    // newArray -&gt; [ { key: &#39;a&#39;, values: [ &#39;value a-1&#39;, &#39;value a-2&#39; ] }, { key: &#39;b&#39;, values: [ &#39;value b-1&#39;, &#39;value b-2&#39; ] } ]
+
+    // This example is using reduce to combine element with same keyss
+</code></pre></article></div></main></body></html>

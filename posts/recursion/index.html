@@ -1,0 +1,55 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Background and Audiences
+In the early this week, I have encounter a problem that can solved by recursion. However, it took me a while to get it solved. In this post, I am going to get couple questions on recursion problem, and practice writing some code.
+Audiences
+
+Having basic understanding on Programming
+Haven&rsquo;t familiar recursion problem
+
+Recursion
+In computer science, recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. (From WikiPedia)"><title>Recursion
+</title><link rel="shortcut icon" type=image/x-icon href=/><link rel=stylesheet href=/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css integrity="sha512-UWUjAtOpmL94h67Vws+JFBu+vfRaLI+HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w=="></head><body a=auto><main class=page-content aria-label=Content><div class=w><div class=post-meta><a href=/>..</a><p><time datetime="2023-12-02 22:27:56 +0700 +0700">2023-12-02</time></p></div><article><h1>Recursion</h1><h2 id=background-and-audiences>Background and Audiences</h2><p>In the early this week, I have encounter a problem that can solved by recursion. However, it took me a while to get it solved. In this post, I am going to get couple questions on recursion problem, and practice writing some code.</p><p>Audiences</p><ul><li>Having basic understanding on Programming</li><li>Haven&rsquo;t familiar recursion problem</li></ul><h2 id=recursion>Recursion</h2><p>In computer science, recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. (From <a href=https://en.wikipedia.org/wiki/Recursion_(computer_science)>WikiPedia</a>)</p><h2 id=practices>Practices</h2><h4 id=exercise-one>Exercise One</h4><p>Given n as positive integer, print n!.</p><pre tabindex=0><code>const n = 3;
+
+const calculate = (n) =&gt; {
+    if(n &lt;= 1){
+        return 1;
+    }
+
+    return calculate(n-1)*n
+}
+
+console.log(calculate(n));
+</code></pre><h4 id=exercise-two>Exercise Two</h4><p>Given 0，1，1，2，3，5，8，13，21，34，55，89，144&mldr;, print number in position n.</p><pre tabindex=0><code>const n = 9;
+
+const calculate = (n) =&gt; {
+    if(n &lt;= 1){
+        return n;
+    }
+
+    return calculate(n-1) + calculate(n-2)
+}
+
+console.log(calculate(n));
+</code></pre><h4 id=exercise-three>Exercise Three</h4><p>Given n = 12345, print 54321, reverse print n.</p><pre tabindex=0><code>const n = 12345;
+
+const calculate = (n) =&gt; {
+
+    console.log(n%10);
+    if(n &gt; 10 ){
+        calculate(Math.floor(n/10));
+    }
+}
+
+calculate(n);
+</code></pre><h4 id=exercise-four>Exercise Four</h4><p>Tower of Hanoi, given x, y, z poles, there are n (n > 1) plates on pole x. Goal is moving all plates on pole y.</p><ol><li>Each time, only move one plate</li><li>big plates can&rsquo;t be on small plates.</li></ol><pre tabindex=0><code>const n = 3
+const from = &#39;x&#39;, tmp = &#39;y&#39;, to = &#39;z&#39;
+
+const hanoi = (n, from, tmp, to) =&gt; {
+    if(n &gt; 0){
+        hanoi(n-1, from, to, tmp);
+        console.log(`take ${n} from ${from} to ${to}`);
+        hanoi(n-1, tmp, from, to);
+    }
+}
+
+hanoi(n, from, tmp, to);
+</code></pre></article></div></main></body></html>

@@ -1,0 +1,91 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="What is Container & Docker
+Container
+
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+Docker
+
+Docker is an open source platform for building, deploying, and managing containerized applications.
+Because docker is so popular today, the word docker and container are used interchangeably. However, docker is a way doing container, there are also other technologies can do containers e.g. Buildah & Podman."><title>What is Container & Docker
+</title><link rel="shortcut icon" type=image/x-icon href=/><link rel=stylesheet href=/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css integrity="sha512-UWUjAtOpmL94h67Vws+JFBu+vfRaLI+HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w=="></head><body a=auto><main class=page-content aria-label=Content><div class=w><div class=post-meta><a href=/>..</a><p><time datetime="2023-12-02 22:27:56 +0700 +0700">2023-12-02</time></p></div><article><h1>What is Container & Docker</h1><h2 id=what-is-container--docker>What is Container & Docker</h2><p>Container</p><blockquote><p>A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p></blockquote><p>Docker</p><blockquote><p>Docker is an open source platform for building, deploying, and managing containerized applications.</p></blockquote><p>Because docker is so popular today, the word docker and container are used interchangeably. However, docker is a way doing container, there are also other technologies can do containers e.g. Buildah & Podman.</p><h2 id=brief-history-and-future>Brief history, and future</h2><p>If we zoom out from current day to day life, and put into a bigger picture. There is a trending of technologies evolvement.</p><p>// TODO: Need a Image
+Server -> Virtual Machine -> Container -> Serverless -> Codeless</p><p>It doesn&rsquo;t mean the next stage will replace previous one, they are going to co-existed in the future, and they are going to work in different situations or case by case.</p><p>The only change between each stage is the requirements of depth of understanding IT gradually decreased toward to right side.</p><h2 id=what-is-under-the-hood>What is under the hood</h2><p>There are three key technology within container</p><ul><li>Chroot - Create an isolated environment (File level isolation)</li><li>Namespace - Hide other running process (Running Process level isolation)</li><li>cgroups - Restricted resources can be accessed by current process (Resources level isolation)</li></ul><h4 id=chroot>chroot</h4><p>chroot is a command that create a jail and isolated the process, so it doesn&rsquo;t aware of anything outside of the working root directory.</p><pre tabindex=0><code># Download a ubuntu container
+docker run -it --name docker-host --rm --privileged ubuntu:bionic
+
+# Create a new root
+mkdir /new-root
+
+# Create a bin folder - bin folder is for normal cmd
+mkdir /new-root/bin
+
+# Copy bash &amp; ls into new-root bin
+cp /bin/bash /bin/ls /new-root/bin
+
+# Create lib &amp; lib64 folder for dependencies
+mkdir /new-root/lib{,64}
+
+# Copy dependencies
+# For Bash
+cp /lib/x86_64-linux-gnu/libtinfo.so.5 /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/libc.so.6 /new-root/lib
+cp /lib64/ld-linux-x86-64.so.2 /new-root/lib64
+
+# For ls
+cp /lib/x86_64-linux-gnu/libselinux.so.1 /lib/x86_64-linux-gnu/libpcre.so.3 /lib/x86_64-linux-gnu/libpthread.so.0 /new-root/lib
+
+# Run chroot
+chroot /new-root bash
+</code></pre><h4 id=namespaces>Namespaces</h4><blockquote><ul><li>It takes a global system resource like a mount point and it provides a wrapper around it that makes it look to the process living in that namespace like it has its own isolated instance of that resource.</li><li>Namespaces allow the partitioning of kernel resources ensuring that one set of processes sees only the resources allocated to it while another set of processes sees only the resources allocated to it.</li><li>Namespaces limit what resources a process or a set of processes can see</li></ul></blockquote><pre tabindex=0><code>Reference - https://btholt.github.io/complete-intro-to-containers/namespaces
+
+# install debootstrap
+apt-get update -y
+apt-get install debootstrap -y
+debootstrap --variant=minbase bionic /better-root
+
+# head into the new namespace&#39;d, chroot&#39;d environment
+unshare --mount --uts --ipc --net --pid --fork --user --map-root-user chroot /better-root bash # this also chroot&#39;s for us
+mount -t proc none /proc # process namespace
+mount -t sysfs none /sys # filesystem
+mount -t tmpfs none /tmp # filesystem
+</code></pre><h4 id=cgroups>cgroups</h4><blockquote><ul><li>Cgroups or control groups were originally released by google as process containers.</li><li>Cgroups isolate a process’s ability to have access to a system resource.</li></ul></blockquote><pre tabindex=0><code>Reference https://btholt.github.io/complete-intro-to-containers/cgroups
+
+# outside of unshare&#39;d environment get the tools we&#39;ll need here
+apt-get install -y cgroup-tools htop
+
+# create new cgroups
+cgcreate -g cpu,memory,blkio,devices,freezer:/sandbox
+
+# add our unshare&#39;d env to our cgroup
+ps aux # grab the bash PID that&#39;s right after the unshare one
+cgclassify -g cpu,memory,blkio,devices,freezer:sandbox &lt;PID&gt;
+
+# list tasks associated to the sandbox cpu group, we should see the above PID
+cat /sys/fs/cgroup/cpu/sandbox/tasks
+
+# show the cpu share of the sandbox cpu group, this is the number that determines priority between competing resources, higher is is higher priority
+cat /sys/fs/cgroup/cpu/sandbox/cpu.shares
+
+# kill all of sandbox&#39;s processes if you need it
+# kill -9 $(cat /sys/fs/cgroup/cpu/sandbox/tasks)
+
+# Limit usage at 5% for a multi core system
+cgset -r cpu.cfs_period_us=100000 -r cpu.cfs_quota_us=$[ 5000 * $(getconf _NPROCESSORS_ONLN) ] sandbox
+
+# Set a limit of 80M
+cgset -r memory.limit_in_bytes=80M sandbox
+# Get memory stats used by the cgroup
+cgget -r memory.stat sandbox
+
+# in terminal session #2, outside of the unshare&#39;d env
+htop # will allow us to see resources being used with a nice visualizer
+
+# in terminal session #1, inside unshared&#39;d env
+yes &gt; /dev/null # this will instantly consume one core&#39;s worth of CPU power
+# notice it&#39;s only taking 5% of the CPU, like we set
+# if you want, run the docker exec from above to get a third session to see the above command take 100% of the available resources
+# CTRL+C stops the above any time
+
+# in terminal session #1, inside unshare&#39;d env
+yes | tr \\n x | head -c 1048576000 | grep n # this will ramp up to consume ~1GB of RAM
+# notice in htop it&#39;ll keep the memory closer to 80MB due to our cgroup
+# as above, connect with a third terminal to see it work outside of a cgroup
+</code></pre><h2 id=docker-client--docker-server>Docker Client & Docker Server</h2><p>See Docker info</p><pre tabindex=0><code>docker version
+</code></pre><h4 id=docker-client---docker-cli>Docker Client - Docker CLI</h4><h4 id=docker-server---docker-daemon>Docker Server - Docker Daemon</h4><p>Docker Daemon is a long running process. It is the core part of docker service.</p><p>To see dockerd process</p><pre tabindex=0><code>ps -aux | grep dockerd
+</code></pre><h2 id=dockerfile---image---container>Dockerfile -> Image -> Container</h2><h2 id=docker-cli>Docker CLI</h2><h2 id=dev-environment>Dev Environment</h2><h2 id=beyond-docker>Beyond Docker</h2><h2 id=reference>Reference</h2><h5 id=docker>Docker</h5><ul><li><a href=https://frontendmasters.com/courses/complete-intro-containers/>https://frontendmasters.com/courses/complete-intro-containers/</a></li><li><a href=https://btholt.github.io/complete-intro-to-containers/>https://btholt.github.io/complete-intro-to-containers/</a></li><li><a href=https://www.docker.com/resources/what-container>https://www.docker.com/resources/what-container</a></li><li><a href=https://www.ibm.com/cloud/learn/docker>https://www.ibm.com/cloud/learn/docker</a></li></ul><h5 id=chroot-1>chroot</h5><ul><li><a href=https://www.howtogeek.com/441534/how-to-use-the-chroot-command-on-linux/>https://www.howtogeek.com/441534/how-to-use-the-chroot-command-on-linux/</a></li><li><a href=https://en.wikipedia.org/wiki/Chroot>https://en.wikipedia.org/wiki/Chroot</a></li></ul><h5 id=namespace>Namespace</h5><ul><li><a href=https://www.linuxnix.com/understanding-namespaces-and-cgroups-in-linux/>https://www.linuxnix.com/understanding-namespaces-and-cgroups-in-linux/</a></li></ul><h5 id=docker-client--server>Docker client & server</h5><ul><li><a href=https://medium.com/tech-learn-share/using-the-docker-client-server-5ad7d696f780>https://medium.com/tech-learn-share/using-the-docker-client-server-5ad7d696f780</a></li><li><a href=https://dockerlabs.collabnix.com/beginners/components/daemon/>https://dockerlabs.collabnix.com/beginners/components/daemon/</a></li><li><a href=https://docs.docker.com/config/daemon/>https://docs.docker.com/config/daemon/</a></li></ul></article></div></main></body></html>
