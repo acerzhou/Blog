@@ -1,4 +1,4 @@
-baseURL = 'https://acerzhou.info'
+baseURL = 'https://acerzhou.info/Blog'
 languageCode = 'en-us'
 title = "Acer Zhou's Blog"
 theme = 'nostyleplease'
